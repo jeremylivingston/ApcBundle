@@ -102,14 +102,14 @@ class ApcClearCommand extends ContainerAwareCommand
             if (curl_errno($ch)) {
                 $error = curl_error($ch);
                 curl_close($ch);
-                unlink($file);
+                //unlink($file);
                 throw new \RuntimeException(sprintf('Curl error reading "%s": %s', $url, $error));
             }
             curl_close($ch);
         }
 
         $result = json_decode($result, true);
-        unlink($file);
+        //unlink($file);
 
         if($result['success']) {
             $output->writeln('Web: '.$result['message'].". Reset attempts: ".(empty($i) ? 1 : $i+1).".");
