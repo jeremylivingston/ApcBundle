@@ -1,10 +1,12 @@
 <?php
-
 $message = 'Clear APC';
 $success = true;
 
+apc_clear_cache();
+die(json_encode(array('success' => $success, 'message' => $message)));
+
 if(%user%) {
-    if (function_exists('apc_clear_cache') && version_compare(PHP_VERSION, '5.5.0', '>=')) {
+    if (function_exists('apc_clear_cache') && version_compare(PHP_VERSION, '5.5.0', '>=') && apc_clear_cache()) {
         $message .= ' User Cache: success';
     }
     elseif (function_exists('apc_clear_cache') && version_compare(PHP_VERSION, '5.5.0', '<') && apc_clear_cache('user')) {
