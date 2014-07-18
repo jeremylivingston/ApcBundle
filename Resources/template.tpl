@@ -1,5 +1,5 @@
 <?php
-die('Don\'t do anything');
+die(json_encode(array('success' => true, 'message' => 'Do nothing')));
 
 $message = 'Clear APC';
 $success = true;
