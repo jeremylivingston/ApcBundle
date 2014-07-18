@@ -1,4 +1,6 @@
 <?php
+die('Don\'t do anything');
+
 $message = 'Clear APC';
 $success = true;
 
